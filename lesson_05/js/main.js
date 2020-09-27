@@ -1,21 +1,56 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-// let getRequest = (url) => {
-//     return new Promise((resolve, reject) => {
-//         let xhr = new XMLHttpRequest();
-//         xhr.open("GET", url, true);
-//         xhr.onreadystatechange = () => {
-//             if(xhr.readyState ===4) {
-//                 if(xhr.status !== 200) {
-//                     reject('Error');
-//                 } else {
-//                     resolve(xhr.responseText)
-//                 }
-//             }
-//         };
-//         xhr.send();
-//     })
-// };
+const app = new Vue({
+    el: '#app',
+    data: {
+        catalogUrl: '/catalogData.json',
+        products: [],
+        imgCatalog: 'https://placehold.it/200x150',
+        searchLine: '',
+        basket: [],
+        filteredProducts: [],
+        isVisibleBasket: false,
+        productSum: 0,
+    },
+    methods: {
+        getJson(url){
+            return fetch(url)
+                .then(result => result.json())
+                .catch(error => {
+                    console.log(error);
+                })
+        },
+        addProduct(product) {
+            this.basket.push(product);
+            this.productSum = this.productSum + product.price;
+        },
+        delProduct(product) {
+            this.basket.pop(product);
+            this.productSum = this.productSum - product.price;
+        },
+        filterProducts() {
+            const regexp = new RegExp(this.searchLine, 'i');
+            this.filteredProducts = this.products.filter(product => regexp.test(product.product_name));
+
+        },
+        showBasket() {
+            if (!this.isVisibleBasket) {
+                this.isVisibleBasket = true;
+            } else {
+                this.isVisibleBasket = false;
+            }
+        },
+    },
+    created() {
+        this.getJson(`${API + this.catalogUrl}`)
+            .then(data => {
+                for(let el of data){
+                    this.products.push(el);
+                }
+                this.filteredProducts = this.products;
+            });
+    },
+});
 
 // class List {
 //     constructor(url, container, list = listContext) {
@@ -75,7 +110,7 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 //         return false
 //     }
 // }
-
+//
 // class Item {
 //     constructor(element, image = 'https://placehold.it/200x150') {
 //         this.product_name = element.product_name;
@@ -220,11 +255,4 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 //                 </div>`
 //     }
 // }
-//
-// const listContext = {
-//     ProductList: ProductItem,
-//     Cart: CartItem,
-// };
-//
-// let cart = new Cart();
-// new ProductList(cart);
+
