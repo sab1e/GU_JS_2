@@ -97,7 +97,7 @@ img {
     border-bottom: 10px solid white;
 }
 
-.buy-btn, .delete-product{
+.buy-btn, .del-btn{
     margin-top: 5px;
     background-color: #2f2a2d;
     padding: 5px 15px;
@@ -168,52 +168,4 @@ img {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #fafafa;
-}
-
-.basket {
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.basket-item {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.basket-img {
-    width: 64px;
-    height: 64px;
-    margin-right: 20px;
-}
-
-.delete-item {
-    width: 100px;
-    height: 30px;
-    background: #ccc;
-    border-radius: 5px;
-    color: black;
-    font-weight: 700;
-    border: none;
-    font-size: medium;
-    margin-right: 20px;
-}
-
-.basket-item h3 {
-    margin-right: 20px;
-}
-
-.delete-product p {
-    margin-right: 20px;
-}
-
-.delete-product:hover {
-    background: red;
-    font-size: large;
-}
-
-.product_sum {
-    margin-top: 30px;
-    font-weight: 700;
 }
