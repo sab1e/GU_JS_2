@@ -1,0 +1,84 @@
+{
+    "statistics": [
+        {
+            "time": "2020-10-04T15:46:47.820Z",
+            "action": "change",
+            "product_name": "Keyboard"
+        },
+        {
+            "time": "2020-10-04T15:50:33.708Z",
+            "action": "remove",
+            "product_name": "Keyboard"
+        },
+        {
+            "time": "2020-10-04T15:50:34.558Z",
+            "action": "remove",
+            "product_name": "Gamepad"
+        },
+        {
+            "time": "2020-10-04T15:50:35.349Z",
+            "action": "remove",
+            "product_name": "Ноутбук"
+        },
+        {
+            "time": "2020-10-04T15:50:36.300Z",
+            "action": "remove",
+            "product_name": "Мышка"
+        },
+        {
+            "time": "2020-10-04T15:50:38.365Z",
+            "action": "remove",
+            "product_name": "Мышка"
+        },
+        {
+            "time": "2020-10-04T15:50:39.480Z",
+            "action": "add",
+            "product_name": "Мышка"
+        },
+        {
+            "time": "2020-10-04T15:50:40.198Z",
+            "action": "add",
+            "product_name": "Ноутбук"
+        },
+        {
+            "time": "2020-10-04T15:50:40.948Z",
+            "action": "add",
+            "product_name": "Gamepad"
+        },
+        {
+            "time": "2020-10-04T15:50:41.647Z",
+            "action": "add",
+            "product_name": "Keyboard"
+        },
+        {
+            "time": "2020-10-04T15:50:42.443Z",
+            "action": "change",
+            "product_name": "Keyboard"
+        },
+        {
+            "time": "2020-10-04T15:53:39.429Z",
+            "action": "change",
+            "product_name": "Keyboard"
+        },
+        {
+            "time": "2020-10-04T15:53:40.244Z",
+            "action": "change",
+            "product_name": "Gamepad"
+        },
+        {
+            "time": "2020-10-04T15:53:43.384Z",
+            "action": "remove",
+            "product_name": "Gamepad"
+        },
+        {
+            "time": "2020-10-04T15:53:44.231Z",
+            "action": "remove",
+            "product_name": "Gamepad"
+        },
+        {
+            "time": "2020-10-04T15:53:45.811Z",
+            "action": "add",
+            "product_name": "Gamepad"
+        }
+    ]
+}
