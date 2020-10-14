@@ -18,15 +18,21 @@ Vue.component('products', {
                 for(let el of data){
                     this.products.push(el);
                     this.filtered.push(el);
-                    console.log(this.products);
-                    console.log(this.filtered);
                 }
             });
     },
     template: `
-    <div class="row">
-        <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
-    </div>`
+        <section id="page-content" class="page-wrapper">
+            <!-- SHOP SECTION START -->
+            <div class="shop-section mb-80">
+                <div class="container">
+                    <div class="row">
+                        <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
+                    </div>
+                </div>
+            </div>
+            <!-- SHOP SECTION END -->
+        </section>`
 });
 
 Vue.component('product', {
@@ -40,13 +46,13 @@ Vue.component('product', {
     <div class="col-md-4 col-sm-4 col-xs-12">
         <div class="product-item">
             <div class="product-img">
-                <a href="product.html" v-bind:id="product.id_product">
+                <a href="#" @click="$root.changeTab('single_product'); $root.changeProduct(product.id_product)">
                     <img src="img/product/7.jpg" alt=""/>
                 </a>
             </div>
             <div class="product-info">
                 <h6 class="product-title">
-                    <a href="single-product.html">{{product.product_name}}</a>
+                    <a href="#" @click="$root.changeTab('single_product'); $root.changeProduct(product.id_product)">{{product.product_name}}</a>
                 </h6>
                 <h3 class="pro-price">{{product.price}}₽</h3>
                 <ul class="action-button">

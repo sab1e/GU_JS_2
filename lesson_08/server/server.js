@@ -28,6 +28,19 @@ app.get('/api/product/:id', (req, res) => {
     });
 });
 
+app.get('/api/hot', (req, res) => {
+    fs.readFile('./server/db/products.json', 'utf-8', (err, data) => {
+        if (err) {
+            res.send(JSON.stringify({result: 0, text: err}));
+        } else {
+            const products = JSON.parse(data);
+            let rand = Math.floor(Math.random() * products.length);
+            let product = products[rand];
+            res.send(product);
+        }
+    });
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Listening ${port} port`);

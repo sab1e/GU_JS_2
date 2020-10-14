@@ -4,13 +4,15 @@ Vue.component('cart', {
             imgCart: 'https://placehold.it/50x100',
             cartItems: [],
             showCart: false,
+            amount: 0,
+            countGoods: 0,
         }
     },
     methods: {
         addProduct(product) {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if (find) {
-                this.$parent.putJson(`/api/carpt/${find.id_product}`, {quantity: 1});
+                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1});
                 find.quantity++;
             } else {
                 let prod = Object.assign({quantity: 1}, product);
@@ -21,6 +23,8 @@ Vue.component('cart', {
                         }
                     });
             }
+            this.countGoods++;
+            this.amount += product.price;
         },
 
         remove(product) {
@@ -33,6 +37,8 @@ Vue.component('cart', {
                             this.cartItems.splice(this.cartItems.indexOf(product), 1)
                         }
                     }
+                    this.countGoods--;
+                    this.amount -= product.price;
                 })
         },
     },
@@ -43,6 +49,8 @@ Vue.component('cart', {
                 if (el.quantity) {
                     this.cartItems.push(el)
                 }
+            this.amount = data.amount;
+            this.countGoods = data.countGoods;
             }
         });
     },
@@ -51,7 +59,7 @@ Vue.component('cart', {
             <div class="total-cart-in">
                 <div class="cart-toggler">
                     <a href="#">
-                        <span class="cart-quantity">02</span><br>
+                        <span class="cart-quantity">{{ countGoods }}</span><br>
                         <span class="cart-icon">
                             <i class="zmdi zmdi-shopping-cart-plus"></i>
                         </span>
@@ -81,14 +89,14 @@ Vue.component('cart', {
                         <div class="top-cart-inner subtotal">
                             <h4 class="text-uppercase g-font-2">
                                 Total  =
-                                <span>$ 500.00</span>
+                                <span>{{ amount }} ₽</span>
                             </h4>
                         </div>
                     </li>
                     <li>
                         <div class="top-cart-inner view-cart">
                             <h4 class="text-uppercase">
-                                <a href="#">View cart</a>
+                                <a href="#" @click="$root.changeTab('full-cart')">View cart</a>
                             </h4>
                         </div>
                     </li>
