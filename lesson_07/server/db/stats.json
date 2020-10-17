@@ -173,5 +173,15 @@
         "time": "10 Oct 2020, 12:04:23 pm",
         "action": "Keyboard",
         "product_name": "remove"
+    },
+    {
+        "time": "10 Oct 2020, 1:13:40 pm",
+        "action": "Мышка",
+        "product_name": "add"
+    },
+    {
+        "time": "10 Oct 2020, 9:34:43 pm",
+        "action": "Ноутбук",
+        "product_name": "add"
     }
 ]

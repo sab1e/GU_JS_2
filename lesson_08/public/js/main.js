@@ -1,5 +1,11 @@
 const app = new Vue({
     el: '#app',
+    data: {
+        currentTab: "Home",
+        tabs: ["Home", "Products", "About", "Contact"],
+        currentProduct: "",
+    },
+
     methods: {
         getJson(url){
             return fetch(url)
@@ -46,7 +52,16 @@ const app = new Vue({
                     this.$refs.error.setErrorText(error);
                 });
         },
+        changeTab(tab, product_id=0) {
+            this.currentTab = tab;
+        },
+        changeProduct(id_product) {
+            this.currentProduct = id_product;
+        },
     },
-    mounted() {
+    computed: {
+        currentTabComponent: function () {
+            return this.currentTab.toLowerCase();
+        }
     },
 });
